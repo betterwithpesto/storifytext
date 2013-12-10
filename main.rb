@@ -13,7 +13,7 @@ post '/' do
   if !@url.include? ".html"
   	@url+=".html"
   end
-  @data = Nokogiri::HTML(open(url))
+  @data = Nokogiri::HTML(open(@url))
   
   
   erb :result
