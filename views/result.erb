@@ -1,0 +1,22 @@
+<body>
+
+    <% @data.css('li.s-element').each do |l| %>
+    <% type = l['data-type'] %>
+    <% source = l['data-source'] %>
+    
+    <% if source == "twitter" %>
+    	<% if type == "quote" %>
+            <%= l.css('a.s-quote-author-username').text %>: 
+    		<%= l.css('div.s-quote-text').text %> <br />
+    	<% elsif type == "image" %>
+            <%= l.css('a.s-author-twitter-handle').text %>: 
+    		<%= l.css('div.s-image-caption').text %> <br />
+    	<% end %>
+    <%end%>
+    <%if source == "storify" %>
+    	<%if type == "text" %>
+    		<br /><%= l.css("div.s-element-content.s-text").text %> <br />
+    	<%end%>
+    <%end%>
+  <%end%>
+</body>
