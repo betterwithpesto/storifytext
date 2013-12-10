@@ -11,7 +11,7 @@ post '/' do
 
   @url = params[:storify]
   if !@url.include? ".html"
-  	url+=".html"
+  	@url+=".html"
   end
   @data = Nokogiri::HTML(open(url))
   
