@@ -1,11 +1,7 @@
 require 'rubygems'  
 require 'sinatra'
-require 'json'
-require 'pp'
 require 'open-uri'
 require 'nokogiri'
-
-
 
 get '/' do
 	erb :storify
