@@ -6,10 +6,10 @@
     
     <% if source == "twitter" %>
     	<% if type == "quote" %>
-            <%= l.css('a.s-quote-author-username').text %>: 
+            <%= l.css('a.s-quote-author-username').text %>:<br />
     		<%= l.css('div.s-quote-text').text %> <br />
     	<% elsif type == "image" %>
-            <%= l.css('a.s-author-twitter-handle').text %>: 
+            <%= l.css('a.s-author-twitter-handle').text %>:<br />
     		<%= l.css('div.s-image-caption').text %> <br />
     	<% end %>
     <%end%>
