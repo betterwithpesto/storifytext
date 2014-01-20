@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'open-uri'
 require 'nokogiri'
+require 'uri'
 
 get '/' do
 	erb :storify

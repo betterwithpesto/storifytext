@@ -5,8 +5,9 @@
     <% source = l['data-source'] %>
     <% if source == "twitter" %>
     	<% if type == "quote" %>
-            <%= l.css('a.s-quote-author-username').text %>:    		
-            <%= l.css('div.s-quote-text').text %> <br />
+            <%= l.css('a.s-quote-author-username').text %>:   
+            <% t = l.css('div.s-quote-text').text %>
+            <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
     		<%= l.css('div.s-image-caption').text %> <br />
@@ -18,5 +19,4 @@
     	<%end%>
     <%end%>
   <%end%>
-  Original URL: <%= @url %>
 </body>
