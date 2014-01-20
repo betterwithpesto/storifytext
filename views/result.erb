@@ -6,7 +6,11 @@
     <% if source == "twitter" %>
     	<% if type == "quote" %>
             <%= l.css('a.s-quote-author-username').text %>:   
-            
+            <% t = l.css('div.s-quote-text').text
+               urlBlock = URI.extract(t)
+               
+             %>
+            <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
     		<%= l.css('div.s-image-caption').text %> <br />
