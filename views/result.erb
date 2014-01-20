@@ -10,11 +10,13 @@
                urlBlock = URI.extract(t)
                if !urlBlock.nil?
                urlBlock.each do |u|
-                   urlLength = u.length
-                   startIndex = t.rindex(u)
-                   t.insert(startIndex, "<a href=\"")
-                   endIndex = (t.rindex(u) + u.length)
-                   t.insert(endIndex, "\">"+u+"</a>")
+                   if(!u.match(/^([a-zA-Z]*:)?$/i).nil?)
+                       urlLength = u.length
+                       startIndex = t.rindex(u)
+                       t.insert(startIndex, "<a href=\"")
+                       endIndex = (t.rindex(u) + u.length)
+                       t.insert(endIndex, "\">"+u+"</a>")
+                    end
                end 
            end
              %>
