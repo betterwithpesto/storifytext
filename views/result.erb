@@ -6,7 +6,17 @@
     <% if source == "twitter" %>
     	<% if type == "quote" %>
             <%= l.css('a.s-quote-author-username').text %>:   
-            <% t = l.css('div.s-quote-text').text %>
+            <% t = l.css('div.s-quote-text').text
+               urlBlock = URI.extract(t)
+               if !urlBlock.nil?
+               urlBlock.each do |u|
+                   urlLength = u.length
+                   startIndex = t.rindex(u)
+                   t.insert(startIndex, "<a href=\"")
+                   endIndex = t.rindex(u) + urlLength
+                   t.insert(endIndex, "\">"+u+"</a>")
+               end 
+             %>
             <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
