@@ -21,19 +21,7 @@
             <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
-            <% t = l.css('div.s-image-caption').text
-               urlBlock = URI.extract(t)
-               if !urlBlock.nil?
-               urlBlock.each do |u|
-                   urlLength = u.length
-                   startIndex = t.rindex(u)
-                   t.insert(startIndex, "<a href=\"")
-                   endIndex = (t.rindex(u) + u.length)
-                   t.insert(endIndex, "\">"+u+"</a>")
-               end 
-           end
-             %>
-            <%= t %> <br />
+    		<%= l.css('div.s-image-caption').text %> <br />
     	<% end %>
     <%end%>
     <%if source == "storify" %>
