@@ -23,7 +23,15 @@
             <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
-    		<%= l.css('div.s-image-caption').text %> <br />
+    		<% t2 = l.css('div.s-image-caption').text %> 
+            <% if !t2.match(/pic.twitter.com/i).nil? 
+                url = t2.split.last
+                startIndex = t2.rindex("pic.twitter.com")
+                t2.insert(startIndex, "<a href=\"")
+                t2 = t2 + "\">"+url+"</a>"
+            end
+            %>
+            <%= t2 %><br />
     	<% end %>
     <%end%>
     <%if source == "storify" %>
