@@ -21,7 +21,7 @@
             <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
-            <% t2 = css('div.s-image-caption').text
+            <% t2 = l.css('div.s-image-caption').text
                urlBlock = URI.extract(t2)
                if !urlBlock.nil?
                urlBlock.each do |u|
