@@ -13,7 +13,8 @@
                    urlLength = u.length
                    startIndex = t.rindex(u)
                    t.insert(startIndex, "<a href=\"")
-                   
+                   endIndex = (t.rindex(u) + u.length)-1
+                   t.insert(endIndex, "\">"+u+"</a>")
                end 
            end
              %>
