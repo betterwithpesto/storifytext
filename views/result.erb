@@ -3,7 +3,7 @@
     <% @page.plaintext.css('li.s-element').each do |l| %>
     <% type = l['data-type'] %>
     <% source = l['data-source'] %>
-    <% if source == "twitter" %>
+   <% if source == "twitter" %>
     	<% if type == "quote" %>
             <%= l.css('a.s-quote-author-username').text %>:
             <% t = l.css('div.s-quote-text').text
@@ -34,9 +34,19 @@
             <%= t2 %><br />
     	<% end %>
     <%end%>
-    <%if source == "storify" %>
+      <%if source == "storify" %>
     	<%if type == "text" %>
-    		<br /><%= l.css("div.s-element-content.s-text").text %><br />
+
+        <% storify_html = l.css("div.s-element-content.s-text").to_s
+
+           htmls = storify_html.gsub(/<div class="s-element-content s-text">/i, "")
+           htmls = storify_html.gsub(/<\/div>/i, "")
+           htmls = storify_html.gsub(/<h2>/i, "")
+           htmls = storify_html.gsub(/<\/h2>/i, "")
+
+        %>
+        <%= htmls %>
+
     	<%end%>
     <%end%>
     <br />
