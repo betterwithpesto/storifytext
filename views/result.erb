@@ -1,11 +1,11 @@
 <body>
 
-    <% @data.css('li.s-element').each do |l| %>
+    <% @page.plaintext.css('li.s-element').each do |l| %>
     <% type = l['data-type'] %>
     <% source = l['data-source'] %>
     <% if source == "twitter" %>
     	<% if type == "quote" %>
-            <%= l.css('a.s-quote-author-username').text %>:   
+            <%= l.css('a.s-quote-author-username').text %>:
             <% t = l.css('div.s-quote-text').text
                urlBlock = URI.extract(t)
                if !urlBlock.nil?
@@ -17,14 +17,14 @@
                        endIndex = (t.rindex(u) + u.length)
                        t.insert(endIndex, "\">"+u+"</a>")
                     end
-               end 
+               end
            end
              %>
             <%= t %> <br />
     	<% elsif type == "image" %>
             <%= l.css('a.s-author-twitter-handle').text %>:
-    		<% t2 = l.css('div.s-image-caption').text %> 
-            <% if !t2.match(/pic.twitter.com/i).nil? 
+    		<% t2 = l.css('div.s-image-caption').text %>
+            <% if !t2.match(/pic.twitter.com/i).nil?
                 url = t2.split.last
                 startIndex = t2.rindex("pic.twitter.com")
                 t2.insert(startIndex, "<a href=\"http://")
@@ -39,5 +39,6 @@
     		<br /><%= l.css("div.s-element-content.s-text").text %><br />
     	<%end%>
     <%end%>
+    <br />
   <%end%>
 </body>

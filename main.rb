@@ -1,21 +1,27 @@
-require 'rubygems'  
+require 'rubygems'
 require 'sinatra'
 require 'open-uri'
 require 'nokogiri'
 require 'uri'
+Dir['./app/*.rb'].each { |file| require file }
+
 
 get '/' do
-	erb :storify
+  erb :storify
 end
 
 post '/' do
-
-  @url = params[:storify]
-  if !@url.include? ".html"
-  	@url+=".html"
-  end
-  @data = Nokogiri::HTML(open(@url))
-  
-  
+  @page = ResultsPage.new(params)
   erb :result
 end
+
+
+
+
+
+
+
+
+
+
+
