@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'open-uri'
+require 'open_uri_redirections'
 require 'nokogiri'
 require 'uri'
 Dir['./app/*.rb'].each { |file| require file }

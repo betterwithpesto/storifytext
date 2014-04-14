@@ -7,7 +7,7 @@ class ResultsPage
     if !url.include? ".html"
       url+=".html"
     end
-    @plaintext = Nokogiri::HTML(open(url))
+    @plaintext = Nokogiri::HTML(open(url, :allow_redirections => :safe))
   end
 
 end
